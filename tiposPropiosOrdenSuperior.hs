@@ -35,3 +35,7 @@ cumplirAños estudiante = estudiante {edad = edad estudiante + 1}
 julia :: Persona
 julia = Estudiante "julia" 20
 
+find' :: (a -> Bool) -> [a] -> a
+find' criterio lista =  (head . filter criterio) lista
+
+
