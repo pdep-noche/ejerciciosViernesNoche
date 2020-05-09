@@ -47,7 +47,7 @@ jazmin =  Flor "jazmin" "aromatizante" 100
 violeta :: Flor
 violeta=  Flor "violeta" "infusión" 110
 orquidea :: Flor
-orquidea =  Flor "orquidea" "decorativo" 90
+orquidea =  Flor "orquidea" "decorativo" 20
 
 flores :: [Flor]
 flores = [orquidea, rosa,violeta, jazmin]
@@ -59,6 +59,22 @@ maximaFlorSegun :: (Flor -> Int) -> [Flor] -> Flor
 maximaFlorSegun _  [x] = x
 maximaFlorSegun f (x:xs) | f x >= (f . maximaFlorSegun f) xs = x
                           | otherwise = maximaFlorSegun f xs
+
+{- 
+a) La cantidad demandada
+
+>maximoSegun cantidadDeDemanda flores
+"rosa"
+
+b) La cantidad de letras de la flor
+>maximoSegun (length.nombreFlor) flores
+"orquidea"
+
+c) El resto de la división de la cantidad demandada por 4
+> maximoSegun ((`mod` 4).cantidadDeDemanda) flores
+"violeta"
+
+-}
 
 estaOrdenada :: [Flor] -> Bool
 estaOrdenada [_] = True
